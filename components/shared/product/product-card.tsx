@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ProductPrice from "@/components/shared/product/product-price";
 import { Product } from "@/types";
+import Rating from "./rating";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -19,20 +20,18 @@ const ProductCard = ({ product }: { product: Product }) => {
           />
         </Link>
       </CardHeader>
-      <CardContent className={"p-4 gap-4"}>
-        <div className={"text-xs"}>{product.brand}</div>
+      <CardContent className="p-4 grid gap-4">
+        <div className="text-xs">{product.brand}</div>
         <Link href={`/product/${product.slug}`}>
-          <h2 className={"text-sm font-medium"}></h2>
+          <h2 className="text-sm font-medium">{product.name}</h2>
         </Link>
-        <div className={"flex-between gap-4"}>
-          <p>{product.rating} Stars</p>
-          <p className={"font-bold"}>
-            {product.stock > 0 ? (
-              <ProductPrice value={Number(product.price)} />
-            ) : (
-              <span className={"font-normal text-red-700"}>Out of stock</span>
-            )}
-          </p>
+        <div className="flex-between gap-4">
+          <Rating value={Number(product.rating)} />
+          {product.stock > 0 ? (
+            <ProductPrice value={Number(product.price)} />
+          ) : (
+            <p className="text-destructive">Out Of Stock</p>
+          )}
         </div>
       </CardContent>
     </Card>

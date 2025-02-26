@@ -1,10 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { convertToPlainObject } from "@/lib/utils";
+import { prisma } from "@/db/prisma";
 
 export const getLatestProducts = async () => {
-  const prisma = new PrismaClient();
   const data = await prisma.product.findMany({
     take: 4,
     orderBy: { createdAt: "desc" },
