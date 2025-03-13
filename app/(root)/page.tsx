@@ -8,7 +8,7 @@ export default async function Home() {
       <ProductList
         data={products}
         title={"Newest Arrivals"}
-        limit={4}
+        limit={3}
       ></ProductList>
     </>
   );
