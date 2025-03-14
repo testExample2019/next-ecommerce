@@ -7,7 +7,7 @@ const ProductList = ({
   title = "Product List",
   limit,
 }: {
-  data: Product[];
+  data: any[];
   title?: string;
   limit?: number;
 }) => {
