@@ -7,7 +7,7 @@ export default async function Home() {
       <ProductList
         data={sampleData.products}
         title={"Newest Arrivals"}
-        limit={4}
+        limit={2}
       ></ProductList>
     </>
   );
