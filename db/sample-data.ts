@@ -1,3 +1,5 @@
+import { Product } from "@/types";
+
 const sampleData = {
   products: [
     {
@@ -102,7 +104,7 @@ const sampleData = {
       isFeatured: true,
       banner: null,
     },
-  ],
+  ] as unknown as Product[],
 };
 
 export default sampleData;
